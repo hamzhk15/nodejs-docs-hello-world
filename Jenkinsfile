@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'docker run --name hk-helloworld -p 1338:1338 hk-helloworld:$BUILD_NUMBER node /var/www/index.js &'
+                sh 'docker run --name hk-helloworld -p 1338:1337 hk-helloworld:$BUILD_NUMBER node /var/www/index.js &'
             }
         }
         
