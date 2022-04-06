@@ -3,17 +3,17 @@ pipeline {
     stages {
         stage('Clean') {
             steps {
-                sh 'docker stop helloworld && docker rm helloworld'
+                sh 'docker stop hk-helloworld && docker rm hk-helloworld'
             }
         }
       stage('Build') {
             steps {
-                sh 'docker build --tag helloworld:$BUILD_NUMBER .'
+                sh 'docker build --tag hk-helloworld:$BUILD_NUMBER .'
             }
         }
         stage('Test') {
             steps {
-                sh 'docker run --name helloworld -p 1337:1337 helloworld:$BUILD_NUMBER node /var/www/index.js &'
+                sh 'docker run --name hk-helloworld -p 1338:1338 hk-helloworld:$BUILD_NUMBER node /var/www/index.js &'
             }
         }
         
