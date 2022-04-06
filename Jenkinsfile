@@ -1,11 +1,6 @@
 pipeline {
     agent any
     stages {
-        stage('Clean') {
-            steps {
-                sh 'docker stop hk-helloworld && docker rm hk-helloworld'
-            }
-        }
       stage('Build') {
             steps {
                 sh 'docker build --tag hk-helloworld:$BUILD_NUMBER .'
